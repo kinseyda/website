@@ -1,5 +1,5 @@
 ---
-
+import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
 ---
 
 <div class="navbar bg-base-100 shadow-sm">
@@ -43,6 +43,12 @@
     </ul>
   </div>
   <div class="navbar-end">
-    <!-- <a class="btn">Button</a> -->
+    <label class="swap swap-rotate">
+      <!-- this hidden checkbox controls the state -->
+      <input type="checkbox" class="theme-controller" value="winter" />
+
+      <SunIcon class="swap-on h-10 w-10 fill-current" />
+      <MoonIcon class="swap-off h-10 w-10 fill-current" />
+    </label>
   </div>
 </div>
