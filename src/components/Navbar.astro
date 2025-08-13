@@ -1,8 +1,10 @@
 ---
-import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
+import { SunIcon, MoonIcon, PaintBrushIcon } from "@heroicons/vue/24/solid";
+import BackgroundSelector from "./BackgroundSelector.vue";
+import Background from "./Background.astro";
 ---
 
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-base-100 shadow">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -43,12 +45,27 @@ import { SunIcon, MoonIcon } from "@heroicons/vue/24/solid";
     </ul>
   </div>
   <div class="navbar-end">
-    <label class="swap swap-rotate">
-      <!-- this hidden checkbox controls the state -->
-      <input type="checkbox" class="theme-controller" value="winter" />
+    <ul class="menu menu-horizontal px-1">
+      <li class="dropdown dropdown-end">
+        <span tabindex="0" role="button">
+          <PaintBrushIcon class="h-10 w-10" role="button" />
+        </span>
+        <ul
+          tabindex="0"
+          class="dropdown-content bg-base-200 rounded-box shadow"
+        >
+          <BackgroundSelector client:load />
+        </ul>
+      </li>
+      <li>
+        <label class="swap swap-rotate">
+          <!-- this hidden checkbox controls the state -->
+          <input type="checkbox" class="theme-controller" value="winter" />
 
-      <SunIcon class="swap-on h-10 w-10 fill-current" />
-      <MoonIcon class="swap-off h-10 w-10 fill-current" />
-    </label>
+          <SunIcon class="swap-on h-10 w-10 fill-current" />
+          <MoonIcon class="swap-off h-10 w-10 fill-current" />
+        </label>
+      </li>
+    </ul>
   </div>
 </div>
