@@ -1,3 +1,12 @@
+/**
+ * Linearly maps a value from one range to another.
+ * @param value Value to map
+ * @param inMin Minimum of the input range
+ * @param inMax Maximum of the input range
+ * @param outMin Minimum of the output range
+ * @param outMax Maximum of the output range
+ * @returns Mapped value in the output range
+ */
 export function mapRange(
   value: number,
   inMin: number,

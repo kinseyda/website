@@ -1,0 +1,218 @@
+\documentclass{article}
+% \usepackage{showframe}
+\usepackage[utf8]{inputenc}
+\usepackage[letterpaper, margin=0.75in]{geometry} % US letter is 8.5" by 11"
+\usepackage{anyfontsize}
+\usepackage{fontawesome}
+\usepackage{xparse}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{xfrac}
+\usepackage{bm}
+\usepackage[super]{nth}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{calc, shadings}
+\hypersetup{ 
+	colorlinks=false, 
+	urlbordercolor=blue, 
+	pdfborderstyle={/S/U/W 1} % border style will be underline of width 1pt
+}
+\urlstyle{monospace}
+\pagenumbering{gobble}
+
+
+\graphicspath{{images/}}
+
+\renewcommand{\familydefault}{\sfdefault} % Sans-serif
+
+% \experience: Add a heading for an entry, such as for work experience.
+% #1: Title, in large bold
+% #2 (optional): Subtitle, directly after a dash after title, in large
+% #3 (optional): Subsubtitle, below title, in italics
+\makeatletter
+\NewDocumentCommand\experience{m O{} O{}}{
+	\noindent
+	\def\@tempa{#2}
+	\begin{large}
+		\textbf{#1}\ifx\@tempa\@empty\relax \else\ --- #2\fi \par
+	\end{large}
+	\def\@tempa{#3}
+	\ifx\@tempa\@empty\relax \else \textit{#3} \fi \par
+}
+\makeatother
+
+
+% \fancySection: Big section header with a gradient underline
+% #1: Section name
+\NewDocumentCommand\fancySection{m}{
+	\noindent
+	\begin{tikzpicture}
+		\shade[ left color=black, right color=white, rounded corners=0.5pt]
+			($(current page.north)+(-3.5in,-1.6in)$)node[ above right,
+			align=left, black ] {\begin{Large}\textbf{#1}\end{Large}} rectangle
+			++(3.5in,1pt) ;
+	\end{tikzpicture}
+}
+
+\begin{document}
+
+\small
+
+\noindent
+% Tikz header. 
+\begin{tikzpicture}
+
+	% Underline
+	\shade[
+		left color=black,
+		right color=lightgray,
+		rounded corners=0.5pt]
+	($(current page.north)+(-3.5in,-1.6in)$) rectangle ++(7in,1pt);
+
+	\draw[ultra thick,gray]
+	% Vertical line
+	($(current page.north)+(0,-0.75in)$) -- ++(0,-0.75in)
+	% Name
+	node[ midway, left=0cm, text width=3.375in, align=right, black ]
+		{\fontsize{32}{38} \selectfont \bf \hspace*{\fill} Daniel
+			\hspace*{\fill} Kinsey \hspace*{\fill}}
+	% Contact and etc
+	node[ midway, right=0.125in, text width=3.25in, minimum height=0.875in,
+			align=left, black] {
+
+			{\LARGE \selectfont Software Developer} \hspace*{\fill} \faMapMarker
+			\ Ottawa, ON \hspace*{\fill}
+
+			\newpage
+			\null % newpage and null to make vfill work
+			\vfill
+
+			\faGlobe \ \href{https://kinseyda.com/}{kinseyda.com}
+			\hspace*{\fill} \faGithub \
+			\href{https://www.github.com/kinseyda}{kinseyda}
+
+			\faLinkedinSquare \
+			\href{https://www.linkedin.com/in/daniel-kinsey}{daniel-kinsey}
+			\hspace*{\fill} \
+			\faEnvelope \
+			\href{mailto:daniel.kinsey.dk@gmail.com}{daniel.kinsey.dk@gmail.com}
+		};
+\end{tikzpicture}
+
+{\centering
+\parbox[t]{0.75\textwidth}{
+	{\centering
+			\textbf{Software developer} and \textbf{summa cum laude computer science graduate} in
+			Ottawa with several years of experience and a passion for learning
+			new things, programming, and computers in general.
+			\par
+		}
+}
+\par
+}
+
+\vspace*{\fill}
+
+\fancySection{Education}
+
+\experience{University of Ottawa}[Honours Bachelor of Science in
+	\textbf{Computer Science}][Graduated September 2025]
+
+\begin{itemize}
+	\item \textbf{Graduated with highest distinction}/ \textbf{Summa Cum Laude}
+	\item \textbf{CGPA} of \textbf{9.56}\(\sfrac{}{10}\).
+	\item \textbf{Dean's list} / \textbf{Merit Scholarship} recipient
+	      \(\times\)3.
+\end{itemize}
+
+\vspace*{\fill}
+
+\fancySection{Experience}
+
+\experience{Software Developer (CO-OP)}[Corning Technology Center of Montreal /
+	iBwave Solutions][September 2023 --- December 2023]
+
+\begin{itemize}
+	\item Developed numerous features for a 2D visualization system for
+	      configuring fibre optic cable purchasing, using \textbf{PixiJS} and
+	      \textbf{React} with an \textbf{Azure .NET} back-end and
+	      \textbf{PostgreSQL}.
+	\item Improved a large application in multiple disparate areas, including
+	      working with the 2D rendering engine, adding accessibility features
+	      such as new ways to display contextual help, and adding more detailed
+	      customization to the cabling configurator.
+	\item Collaborated in a mid-sized team using agile development practices ---
+	      including creating new tickets, performing code reviews, and exceeding
+	      performance expectations over several sprints.
+\end{itemize}
+
+\experience{Web Developer (CO-OP)}[SkyWare Labs][January 2023 --- April 2023]
+
+\begin{itemize}
+	\item Developed web forms and new functionalities for a large scale
+	      \textbf{web application} and \textbf{REST} API using
+	      \textbf{Angular} (\textbf{Typescript} / \textbf{Javascript}),
+	      \textbf{Spring} (\textbf{Java}), and \textbf{PostgreSQL}.
+	\item Implemented back-end processing and parsing for ATS message protocols
+	      (airport telecommunications), allowing for a large amount of automated
+	      data input.
+	\item Improved flight path and flight information region visualizations on a
+	      map integrated with the Google Maps API via Leaflet, allowing for
+	      easier administration of airport data.
+\end{itemize}
+
+% \vspace*{\fill}
+
+% \fancySection{Personal Projects}
+
+% \experience{Muziko}[][\faGithub\
+% 	\href{https://github.com/kinseyda/muziko}{GitHub},\
+% 	\includegraphics[height=1.5ex]{muziko-icon-small.png}\
+% 	\href{https://kinseyda.github.io/muziko/}{Website}]
+
+% \begin{itemize}
+% 	\item Created a modern \textbf{React} based web app to consume Spotify's web
+% 	      API, with \textbf{Tailwind CSS} and \textbf{daisyUI} components ---
+% 	      complete with multiple themes and translations.
+% 	\item Implemented forum-style comments system using a
+% 	      \textbf{Firebase}/\textbf{Firestore} \textbf{NoSQL} database.
+% \end{itemize}
+
+% \experience{Neural Playground}[][\faGithub\
+% 	\href{https://github.com/kinseyda/neural-playground}{GitHub},\
+% 	\includegraphics[height=1.5ex]{neural-icon-small.png}\
+% 	\href{https://kinseyda.github.io/neural-playground/}{Website}]
+
+% \begin{itemize}
+% 	\item Implemented the backpropagation machine learning algorithm from
+% 	      scratch, along with linear algebra in \textbf{Typescript}.
+% 	\item Interfaced with vis.js to create fast, intuitive visualizations for
+% 	      neural networks.
+% \end{itemize}
+
+% \experience{Moles}[][\faGithub\
+% 	\href{https://github.com/kinseyda/moles}{GitHub},\
+% 	\includegraphics[height=1.5ex]{mole-icon-small.png}\
+% 	\href{https://kinseyda.github.io/moles/}{Website}]
+
+% \begin{itemize}
+% 	\item Created a complex game structure and UI entirely with \textbf{Vue} and
+% 	      \textbf{Typescript}.
+% 	\item Extensively used object oriented design patterns to create a simple,
+% 	      easily extensible framework for the game, allowing structural
+% 	      modification down the line.
+% \end{itemize}
+
+\vspace*{\fill}
+
+\fancySection{Skills}
+
+\begin{itemize}
+	\item \textbf{Languages}: C, C++, C\#, Java, Javascript, Python, SQL,
+	      Typescript
+
+\end{itemize}
+
+
+\end{document}

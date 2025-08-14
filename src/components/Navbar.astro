@@ -1,10 +1,9 @@
 ---
-import { SunIcon, MoonIcon, PaintBrushIcon } from "@heroicons/vue/24/solid";
+import { MoonIcon, PaintBrushIcon, SunIcon } from "@heroicons/vue/24/solid";
 import BackgroundSelector from "./BackgroundSelector.vue";
-import Background from "./Background.astro";
 ---
 
-<div class="navbar bg-base-100 shadow">
+<div class="navbar bg-base-300 shadow min-h-16 max-h-16">
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -29,7 +28,7 @@ import Background from "./Background.astro";
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/projects">Projects</a></li>
-        <li><a href="/resume">Resume</a></li>
+        <li><a href="/resume.pdf">Resume</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </div>
@@ -40,7 +39,7 @@ import Background from "./Background.astro";
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/projects">Projects</a></li>
-      <li><a href="/resume">Resume</a></li>
+      <li><a href="/resume.pdf">Resume</a></li>
       <li><a href="/contact">Contact</a></li>
     </ul>
   </div>

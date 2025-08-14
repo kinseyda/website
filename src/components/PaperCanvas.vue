@@ -38,6 +38,13 @@ export default {
       // Call the redraw function with the event, project, and view
       this.updateDrawing(event, paper.project, paper.view);
     };
+    window.addEventListener("resize", () => {
+      paper.view.viewSize = new paper.Size(
+        window.innerWidth,
+        window.innerHeight
+      );
+      // Canvas is the full size of the window
+    });
   },
 };
 </script>
