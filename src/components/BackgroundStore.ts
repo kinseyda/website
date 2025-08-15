@@ -1,4 +1,4 @@
-import { map } from "nanostores";
+import { persistentMap } from "@nanostores/persistent";
 
 export type BackgroundOptions = {
   isBackgroundEnabled: boolean;
@@ -7,9 +7,16 @@ export type BackgroundOptions = {
   samples: number;
 };
 
-export const backgroundOptions = map<BackgroundOptions>({
-  isBackgroundEnabled: true,
-  showPoints: false,
-  showGuideWave: false,
-  samples: 20,
-});
+export const backgroundOptions = persistentMap<BackgroundOptions>(
+  "backgroundOptions:",
+  {
+    isBackgroundEnabled: true,
+    showPoints: false,
+    showGuideWave: false,
+    samples: 20,
+  },
+  {
+    encode: JSON.stringify,
+    decode: JSON.parse,
+  }
+);

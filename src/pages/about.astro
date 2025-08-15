@@ -1,24 +1,36 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
+import monty from "../assets/monty.jpg";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
   <div class="hero">
-    <div class="hero-content text-center">
-      <div class="max-w-md">
-        <h1 class="mb-5 text-5xl font-bold">About Daniel Kinsey</h1>
-        <p class="mb-5">
-          I'm Daniel Kinsey, a software developer in Ottawa with a passion for
-          solving problems. In 2025, I graduated summa cum laude from the
-          University of Ottawa with a degree in Computer Science. During my time
-          as a student, I worked as a web developer at two internships.
-        </p>
-        <p class="mb-5">
-          In my free time I love tinkering with new technologies on my home
-          server (serving you this website). I also love music; I play guitar
-          decently and piano poorly.
-        </p>
+    <div class="hero-content text-center flex flex-col items-center">
+      <h1 class="mb-5 text-5xl font-bold">About Daniel Kinsey</h1>
+      <div class="flex flex-row items-center gap-4">
+        <Image
+          src={monty}
+          alt="Monty the mole"
+          class="max-w-3xs rounded-3xl shadow-3xl"
+        />
+        <div class="max-w-md gap-5 flex flex-col">
+          <p>
+            I'm Daniel Kinsey, a software developer in Ottawa with a passion for
+            solving problems. In 2025, I graduated summa cum laude from the
+            University of Ottawa with a degree in Computer Science. During my
+            time as a student, I worked as a web developer at two internships.
+          </p>
+          <p>My favorite animal is the mole, hence Monty on the left.</p>
+          <p>
+            In my free time I love tinkering with new technologies on my home
+            server (serving you this website). I also love music; I play guitar
+            decently and piano poorly. I also practice Olympic style archery,
+            which I also coached when I was younger. And like every other nerd,
+            I love PC gaming as well.
+          </p>
+        </div>
       </div>
     </div>
   </div>

@@ -1,5 +1,11 @@
 ---
-import { MoonIcon, PaintBrushIcon, SunIcon } from "@heroicons/vue/24/solid";
+import {
+  MoonIcon,
+  PaintBrushIcon,
+  SunIcon,
+  AdjustmentsHorizontalIcon,
+  Bars3Icon,
+} from "@heroicons/vue/24/outline";
 import BackgroundSelector from "./BackgroundSelector.vue";
 ---
 
@@ -7,23 +13,11 @@ import BackgroundSelector from "./BackgroundSelector.vue";
   <div class="navbar-start">
     <div class="dropdown">
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h8m-8 6h16"></path>
-        </svg>
+        <Bars3Icon class="h-10 w-10" role="button" />
       </div>
       <ul
         tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+        class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
       >
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
@@ -35,7 +29,7 @@ import BackgroundSelector from "./BackgroundSelector.vue";
     <a class="btn btn-ghost text-xl" href="/"> Daniel Kinsey </a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
+    <ul class="menu menu-horizontal menu-lg px-1">
       <li><a href="/">Home</a></li>
       <li><a href="/about">About</a></li>
       <li><a href="/projects">Projects</a></li>
@@ -44,27 +38,34 @@ import BackgroundSelector from "./BackgroundSelector.vue";
     </ul>
   </div>
   <div class="navbar-end">
-    <ul class="menu menu-horizontal px-1">
-      <li class="dropdown dropdown-end">
-        <span tabindex="0" role="button">
-          <PaintBrushIcon class="h-10 w-10" role="button" />
-        </span>
-        <ul
-          tabindex="0"
-          class="dropdown-content bg-base-200 rounded-box shadow"
-        >
-          <BackgroundSelector client:load />
-        </ul>
-      </li>
-      <li>
-        <label class="swap swap-rotate">
-          <!-- this hidden checkbox controls the state -->
-          <input type="checkbox" class="theme-controller" value="winter" />
+    <details class="dropdown dropdown-end">
+      <summary class="btn btn-ghost"
+        ><AdjustmentsHorizontalIcon class="h-10 w-10" /></summary
+      >
+      <ul
+        class="menu menu-vertical dropdown-content bg-base-200 rounded-box shadow"
+      >
+        <li class="dropdown dropdown-left">
+          <span tabindex="0" role="button">
+            <PaintBrushIcon class="h-10 w-10" role="button" />
+          </span>
+          <ul
+            tabindex="0"
+            class="dropdown-content bg-base-200 rounded-box shadow"
+          >
+            <BackgroundSelector client:load />
+          </ul>
+        </li>
+        <li>
+          <label class="swap swap-rotate">
+            <!-- this hidden checkbox controls the state -->
+            <input type="checkbox" class="theme-controller" value="winter" />
 
-          <SunIcon class="swap-on h-10 w-10 fill-current" />
-          <MoonIcon class="swap-off h-10 w-10 fill-current" />
-        </label>
-      </li>
-    </ul>
+            <SunIcon class="swap-on h-10 w-10" />
+            <MoonIcon class="swap-off h-10 w-10" />
+          </label>
+        </li>
+      </ul>
+    </details>
   </div>
 </div>

@@ -14,6 +14,9 @@ export default {
     // called to redraw the canvas, Astro can only do this by serializing the
     // function
     // (https://docs.astro.build/en/guides/framework-components/#passing-props-to-framework-components)
+    // Side effect of this is that we can only use Vue components down stream of
+    // here and everything will be hydrated, defeating the purpose of Astro a
+    // little bit, but alas.
     redrawFunction: {
       type: Function, // Expects type (event: RedrawEvent, project: paper.Project, view: paper.View) => void
       required: true,

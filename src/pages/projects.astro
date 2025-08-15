@@ -1,49 +1,138 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ProjectHero from "../components/ProjectHero.astro";
+import { Image } from "astro:assets";
+import MuzikoScreenshot from "../assets/muziko-screenshot.png";
 ---
 
 <Layout>
   <div class="hero">
-    <div class="hero-content text-center">
-      <div class="">
-        <h1 class="mb-5 text-5xl font-bold">Daniel Kinsey's Projects</h1>
-        <p class="mb-5">Here you can find a list of my projects.</p>
-        <div class="grid grid-cols-1 gap-4">
-          <div class="hero bg-base-200 min-w-sm">
-            <div class="hero-content flex-col lg:flex-row">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                class="max-w-sm rounded-lg shadow-3xl"
-              />
-              <div>
-                <h1 class="text-5xl font-bold">Box Office News!</h1>
-                <p class="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button class="btn btn-primary">Get Started</button>
-              </div>
-            </div>
-          </div>
-          <div class="hero bg-base-200 min-w-sm">
-            <div class="hero-content flex-col lg:flex-row">
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
-                class="max-w-sm rounded-lg shadow-3xl"
-              />
-              <div>
-                <h1 class="text-5xl font-bold">Box Office News!</h1>
-                <p class="py-6">
-                  Provident cupiditate voluptatem et in. Quaerat fugiat ut
-                  assumenda excepturi exercitationem quasi. In deleniti eaque
-                  aut repudiandae et a id nisi.
-                </p>
-                <button class="btn btn-primary">Get Started</button>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="hero-content text-center gap-5 flex flex-col">
+      <h1 class="mb-5 text-5xl font-bold">Daniel Kinsey's Projects</h1>
+      <p class="max-w-lg">
+        Here you can find a [non-exhaustive] list of projects I've worked on,
+        and some description of what they are and how I made them. Some are
+        polished versions of university work, some are made on my own time.
+        Listed in approximately reverse chronological order.
+      </p>
+      <div class="divider"></div>
+      <div class="grid grid-cols-1 gap-4">
+        <ProjectHero>
+          <span slot="title">This Website</span>
+          <span slot="description">
+            <p>
+              This website was built to act as a portfolio and a demonstration
+              of my home server. The site is made with Astro and Vue, using
+              daisyui's tailwindcss components, and paper.js for the background
+              animation. The main branch gets built in a Docker image and served
+              with nginx, which my home server pulls and runs. The server is an
+              old ThinkCentre running Debian, and all traffic is routed through
+              Cloudflare and an internal nginx reverse proxy. The server hosts a
+              few other services as well for friends and family.
+            </p>
+          </span>
+          <span slot="links">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/kinseyda/website"
+            >
+              View GitHub Repository
+            </a>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">Divinim</span>
+          <span slot="description">
+            <p>
+              Divinim was my honours project as a Computer Science student at
+              the University of Ottawa. Divinim is a game of mine and my
+              professor's creation, an abstraction of the game "Bad Chocolate",
+              sometimes called Chomp. The game is played on a grid of squares,
+              where one piece is "poisoned". Players take turns breaking the bar
+              along one gridline, giving the other player the part with the
+              poisoned piece, who then has to break the bar again. The game ends
+              when the individual poisoned piece is handed to a player, who
+              loses the game. Our abstraction, Divinim, allows for multiple
+              pieces to be poisoned. This addition leads to a more complex game,
+              and analyzing it was the goal of the project.
+            </p>
+            <p>
+              The main deliverable of the project was a report written in LaTeX
+              analyzing the game, and a presentation of the results. I am also
+              creating a web version of the game, which is not yet complete.
+            </p>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">Wikid</span>
+          <span slot="description">
+            <p>TODO!</p>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">Muziko</span>
+          <Image
+            slot="image"
+            src={MuzikoScreenshot}
+            alt="Muziko project screenshot"
+            class=""
+          />
+          <span slot="description">
+            <p>
+              Muziko is a website that allows users to post comments on songs,
+              albums, and artists. The goal of the project was to create a
+              vertical slice of a full web application. The front-end was built
+              with React, using Tailwind and daisyui for styling. It includes
+              multiple themes, uses responsive design, has full language
+              support, and was built with accessibility in mind. The back-end
+              uses Firebase for user authentication with firestore as a database
+              for the comments. The music data is pulled from Spotify's API.
+            </p>
+          </span>
+          <span slot="links">
+            <a class="btn btn-primary" href="https://kinseyda.github.io/muziko">
+              View Project
+            </a>
+            <a
+              class="btn btn-primary"
+              href="https://github.com/kinseyda/muziko"
+            >
+              View GitHub Repository
+            </a>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">Neural Playground</span>
+          <span slot="description">
+            <p>TODO!</p>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">Moles</span>
+          <span slot="description">
+            <p>TODO!</p>
+          </span>
+        </ProjectHero>
+        <ProjectHero>
+          <span slot="title">ArchMark</span>
+          <span slot="description">
+            <p>
+              ArchMark is an Android app that allows users to quickly score
+              archery rounds. It was the first "real" project I worked on as a
+              programmer, and so I don't know if it deserves a place here, but
+              it holds a special place in my heart and so I'm including it. It
+              was built using Kotlin and the Android SDK.
+            </p>
+          </span>
+          <span slot="links">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/kinseyda/archmark"
+            >
+              View GitHub Repository
+            </a>
+          </span>
+        </ProjectHero>
       </div>
     </div>
   </div>
