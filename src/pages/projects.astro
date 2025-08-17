@@ -1,8 +1,13 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import ProjectHero from "../components/ProjectHero.astro";
 import { Image } from "astro:assets";
 import MuzikoScreenshot from "../assets/muziko-screenshot.png";
+import NeuralPlaygroundScreenshot from "../assets/neural-playground-screenshot.png";
+import ProjectHero from "../components/ProjectHero.astro";
+import Layout from "../layouts/Layout.astro";
+import MolesScreenshot from "../assets/moles-screenshot.png";
+import ArchmarkScreenshot from "../assets/archmark-screenshot.png";
+import WikidDemo from "../assets/wikid-demo.gif";
+import DivinimScreenshot from "../assets/divinim-screenshot.png";
 ---
 
 <Layout>
@@ -26,9 +31,9 @@ import MuzikoScreenshot from "../assets/muziko-screenshot.png";
               daisyui's tailwindcss components, and paper.js for the background
               animation. The main branch gets built in a Docker image and served
               with nginx, which my home server pulls and runs. The server is an
-              old ThinkCentre running Debian, and all traffic is routed through
-              Cloudflare and an internal nginx reverse proxy. The server hosts a
-              few other services as well for friends and family.
+              old refurbished ThinkCenter running Debian, and all traffic is
+              routed through Cloudflare and an internal nginx reverse proxy. The
+              server hosts a few other services as well for friends and family.
             </p>
           </span>
           <span slot="links">
@@ -42,31 +47,54 @@ import MuzikoScreenshot from "../assets/muziko-screenshot.png";
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Divinim</span>
+          <Image
+            slot="image"
+            src={DivinimScreenshot}
+            alt="Divinim project screenshot"
+            class=""
+          />
           <span slot="description">
             <p>
               Divinim was my honours project as a Computer Science student at
-              the University of Ottawa. Divinim is a game of mine and my
-              professor's creation, an abstraction of the game "Bad Chocolate",
-              sometimes called Chomp. The game is played on a grid of squares,
-              where one piece is "poisoned". Players take turns breaking the bar
-              along one gridline, giving the other player the part with the
-              poisoned piece, who then has to break the bar again. The game ends
-              when the individual poisoned piece is handed to a player, who
-              loses the game. Our abstraction, Divinim, allows for multiple
-              pieces to be poisoned. This addition leads to a more complex game,
-              and analyzing it was the goal of the project.
+              the University of Ottawa: a game of mine and my supervisor's
+              creation, an abstraction of the game "Bad Chocolate", sometimes
+              called Chomp. The game is played on a grid of squares, where one
+              piece is "poisoned". Players take turns breaking the bar along one
+              gridline, giving the other player the part with the poisoned
+              piece, who then has to break the bar again. The game ends when the
+              individual poisoned piece is handed to a player, who loses the
+              game. Our abstraction, Divinim, allows for multiple pieces to be
+              poisoned. This addition leads to a more complex game, and
+              analyzing it was the goal of the project.
             </p>
             <p>
-              The main deliverable of the project was a report written in LaTeX
-              analyzing the game, and a presentation of the results. I am also
-              creating a web version of the game, which is not yet complete.
+              The main deliverable of the project was a report and presentation
+              written in LaTeX analyzing the game theory: determining if an
+              ideal strategy exists and what it might be. I am also creating a
+              web version of the game, which is not yet complete.
             </p>
           </span>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Wikid</span>
+          <Image
+            slot="image"
+            src={WikidDemo}
+            alt="Wikid project screenshot"
+            class=""
+          />
           <span slot="description">
-            <p>TODO!</p>
+            <p>
+              Wikid is a terminal interface for reading offline Wikipedia dumps.
+              It was built using Go and the Bubble Tea TUI framework. It uses
+              pandoc to convert the MediaWiki markup to terminal-friendly
+              markdown, and indexes the articles and metadata using Meilisearch.
+            </p>
+          </span>
+          <span slot="links">
+            <a class="btn btn-primary" href="https://github.com/kinseyda/wikid">
+              View GitHub Repository
+            </a>
           </span>
         </ProjectHero>
         <ProjectHero>
@@ -103,18 +131,81 @@ import MuzikoScreenshot from "../assets/muziko-screenshot.png";
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Neural Playground</span>
+          <Image
+            slot="image"
+            src={NeuralPlaygroundScreenshot}
+            alt="Neural Playground project screenshot"
+            class=""
+          />
           <span slot="description">
-            <p>TODO!</p>
+            <p>
+              Neural Playground is a web application that allows users to
+              experiment with neural networks. It was built as a personal
+              project to learn more about machine learning and neural networks,
+              with my goal being to create the entire network in the browser,
+              using only my own code. The result is a Typescript implementation
+              of a simple feedforward neural network and an implementation of
+              the backpropagation algorithm, including the vector math that goes
+              along with that. Since the entire network is implemented in
+              Typescript and runs in the browser, it is not very performant, but
+              it is educational. The user can create a network, train it on a
+              small dataset, and see it learn in real time. Provided datasets
+              are all basic logic gates and functions on small numbers, in order
+              to get a fast result. To display the network as a graph, I used
+              vis.js.
+            </p>
+          </span>
+          <span slot="links">
+            <a
+              class="btn btn-primary"
+              href="https://kinseyda.github.io/neural-playground"
+            >
+              View Project
+            </a>
+            <a
+              class="btn btn-primary"
+              href="https://github.com/kinseyda/neural-playground"
+            >
+              View GitHub Repository
+            </a>
           </span>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Moles</span>
+          <Image
+            slot="image"
+            src={MolesScreenshot}
+            alt="Moles project screenshot"
+            class=""
+          />
           <span slot="description">
-            <p>TODO!</p>
+            <p>
+              Moles is a text-based incremental game where you manage a colony
+              of moles. These sorts of games are often pejoratively called
+              "clicker" / "idle" games, which may be a more familiar name to
+              you. They are very addicting to me, so I was inspired to make one
+              as my first web project. It was built using Vue and plain
+              TypeScript / HTML / CSS, all the components and visual effects
+              were created by me.
+            </p>
+          </span>
+          <span slot="links">
+            <a class="btn btn-primary" href="https://kinseyda.github.io/moles">
+              View Project
+            </a>
+            <a class="btn btn-primary" href="https://github.com/kinseyda/moles">
+              View GitHub Repository
+            </a>
           </span>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">ArchMark</span>
+          <Image
+            slot="image"
+            src={ArchmarkScreenshot}
+            alt="ArchMark project screenshot"
+            class=""
+          />
           <span slot="description">
             <p>
               ArchMark is an Android app that allows users to quickly score

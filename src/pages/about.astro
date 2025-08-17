@@ -9,18 +9,23 @@ import { Image } from "astro:assets";
   <div class="hero">
     <div class="hero-content text-center flex flex-col items-center">
       <h1 class="mb-5 text-5xl font-bold">About Daniel Kinsey</h1>
-      <div class="flex flex-row items-center gap-4">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-items-center items-center"
+      >
         <Image
           src={monty}
           alt="Monty the mole"
-          class="max-w-3xs rounded-3xl shadow-3xl"
+          class="max-w-xs rounded-3xl shadow-3xl"
         />
-        <div class="max-w-md gap-5 flex flex-col">
+        <div class="max-w-md gap-2 flex flex-col">
           <p>
             I'm Daniel Kinsey, a software developer in Ottawa with a passion for
-            solving problems. In 2025, I graduated summa cum laude from the
-            University of Ottawa with a degree in Computer Science. During my
-            time as a student, I worked as a web developer at two internships.
+            solving problems.
+          </p>
+          <p>
+            In 2025, I graduated summa cum laude from the University of Ottawa
+            with a degree in Computer Science. During my time as a student, I
+            worked as a web developer at two internships.
           </p>
           <p>My favorite animal is the mole, hence Monty on the left.</p>
           <p>
