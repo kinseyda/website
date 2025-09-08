@@ -25,8 +25,7 @@
 </template>
 
 <script lang="ts">
-import { useStore, useVModel } from "@nanostores/vue";
-import { getDaisyUIColor } from "../utils/StyleUtils";
+import { useVModel } from "@nanostores/vue";
 import { backgroundOptions } from "./BackgroundStore";
 
 export default {

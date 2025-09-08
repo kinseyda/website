@@ -7,7 +7,7 @@ export type DebugOptions = {
 export const debugOptions = persistentMap<DebugOptions>(
   "debugOptions:",
   {
-    debugMode: true,
+    debugMode: false,
   },
   {
     encode: JSON.stringify,
