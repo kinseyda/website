@@ -1,7 +1,16 @@
 ---
 import Background from "../components/Background.astro";
+import DebugInfo from "../components/DebugInfo.vue";
 import Navbar from "../components/Navbar.astro";
 import "../styles/global.css";
+
+const astroInfo = {
+  href: Astro.url.href,
+  origin: Astro.url.origin,
+  pathname: Astro.url.pathname,
+  generator: Astro.generator,
+  buildDate: new Date().toISOString(), // Note this is run at build time
+};
 ---
 
 <!doctype html>
@@ -21,18 +30,23 @@ import "../styles/global.css";
           <slot class="grow" />
         </div>
       </div>
+      <DebugInfo
+        client:load
+        astroInfo={astroInfo}
+        class="fixed bottom-0 right-0 m-4 p-2 bg-base-200 bg-opacity-75 rounded-lg text-sm z-50"
+      />
       <div class="absolute inset-0 -z-100">
         <Background />
       </div>
     </div>
   </body>
-
-  <style>
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
 </html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

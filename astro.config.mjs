@@ -6,6 +6,8 @@ import vue from "@astrojs/vue";
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://kinseyda.com",
+
   vite: {
     plugins: [tailwindcss()],
   },
