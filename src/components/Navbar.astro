@@ -7,6 +7,8 @@ import {
   Bars3Icon,
 } from "@heroicons/vue/24/outline";
 import BackgroundSelector from "./BackgroundSelector.vue";
+
+const { pathname } = Astro.url;
 ---
 
 <div class="navbar bg-base-300 shadow min-h-16 max-h-16">
@@ -17,24 +19,60 @@ import BackgroundSelector from "./BackgroundSelector.vue";
       </div>
       <ul
         tabindex="0"
-        class="menu menu-lg dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+        class="menu menu-xl dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow gap-4"
       >
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/projects">Projects</a></li>
-        <li><a href="/resume.pdf">Resume</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li>
+          <a href="/" class:list={[pathname === "/" ? "outline" : ""]}>Home</a>
+        </li>
+        <li>
+          <a href="/about" class:list={[pathname === "/about" ? "outline" : ""]}
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="/projects"
+            class:list={[pathname === "/projects" ? "outline" : ""]}>Projects</a
+          >
+        </li>
+        <li>
+          <a href="/resume.pdf">Resume</a>
+        </li>
+        <li>
+          <a
+            href="/contact"
+            class:list={[pathname === "/contact" ? "outline" : ""]}>Contact</a
+          >
+        </li>
       </ul>
     </div>
     <a class="btn btn-ghost text-xl" href="/"> Daniel Kinsey </a>
   </div>
   <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal menu-lg px-1">
-      <li><a href="/">Home</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/projects">Projects</a></li>
-      <li><a href="/resume.pdf">Resume</a></li>
-      <li><a href="/contact">Contact</a></li>
+    <ul class="menu menu-horizontal menu-lg px-1 gap-4">
+      <li>
+        <a href="/" class:list={[pathname === "/" ? "outline" : ""]}>Home</a>
+      </li>
+      <li>
+        <a href="/about" class:list={[pathname === "/about" ? "outline" : ""]}
+          >About</a
+        >
+      </li>
+      <li>
+        <a
+          href="/projects"
+          class:list={[pathname === "/projects" ? "outline" : ""]}>Projects</a
+        >
+      </li>
+      <li>
+        <a href="/resume.pdf">Resume</a>
+      </li>
+      <li>
+        <a
+          href="/contact"
+          class:list={[pathname === "/contact" ? "outline" : ""]}>Contact</a
+        >
+      </li>
     </ul>
   </div>
   <div class="navbar-end">
