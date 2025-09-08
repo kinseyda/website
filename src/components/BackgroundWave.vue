@@ -6,7 +6,7 @@ import PaperCanvas from "./PaperCanvas.vue";
 import type { RedrawEvent } from "../utils/PaperUtils";
 import { mapRange, sumOfSines } from "../utils/MathUtils";
 import { getDaisyUIColor } from "../utils/StyleUtils";
-import { backgroundOptions, type BackgroundOptions } from "./BackgroundStore";
+import { backgroundStore, type BackgroundOptions } from "./BackgroundStore";
 import { useStore } from "@nanostores/vue";
 import paper from "paper";
 
@@ -171,7 +171,7 @@ export default {
     },
   },
   setup() {
-    const $backgroundOptions = useStore(backgroundOptions);
+    const $backgroundOptions = useStore(backgroundStore);
     return {
       backgroundOptions: $backgroundOptions,
     };
@@ -179,11 +179,13 @@ export default {
 };
 </script>
 <template>
-  <PaperCanvas
-    class="w-full h-full"
-    :redrawFunction="redrawWithOptions(backgroundOptions)"
-    v-if="backgroundOptions.isBackgroundEnabled"
-  />
+  <div data-allow-mismatch="children">
+    <PaperCanvas
+      class="w-full h-full"
+      :redrawFunction="redrawWithOptions(backgroundOptions)"
+      v-if="backgroundOptions.isBackgroundEnabled"
+    />
+  </div>
 </template>
 <style scoped>
 canvas[resize] {

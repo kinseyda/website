@@ -13,9 +13,8 @@
 </template>
 
 <script lang="ts">
-import { useStore, useVModel } from "@nanostores/vue";
-import { getDaisyUIColor } from "../utils/StyleUtils";
-import { debugOptions } from "./DebugStore";
+import { useVModel } from "@nanostores/vue";
+import { debugStore } from "./DebugStore";
 
 export default {
   components: {},
@@ -24,7 +23,7 @@ export default {
     return {};
   },
   setup() {
-    const isDebugMode = useVModel(debugOptions, "debugMode");
+    const isDebugMode = useVModel(debugStore, "debugMode");
     return {
       isDebugMode: isDebugMode,
     };

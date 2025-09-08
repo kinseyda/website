@@ -3,10 +3,11 @@ import {
   MoonIcon,
   PaintBrushIcon,
   SunIcon,
-  AdjustmentsHorizontalIcon,
+  Cog6ToothIcon,
   Bars3Icon,
 } from "@heroicons/vue/24/outline";
 import BackgroundSelector from "./BackgroundSelector.vue";
+import Monogram from "../assets/monogram.svg";
 
 let { pathname } = Astro.url;
 pathname = pathname.replace(/\/+$/, "").replace(/^\/+/, ""); // Remove trailing and leading slashes
@@ -15,7 +16,7 @@ pathname = pathname.replace(/\/+$/, "").replace(/^\/+/, ""); // Remove trailing 
 <div class="navbar bg-base-300 shadow min-h-16 max-h-16">
   <div class="navbar-start">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+      <div tabindex="0" role="button" class="btn btn-ghost sm:hidden">
         <Bars3Icon class="h-10 w-10" role="button" />
       </div>
       <ul
@@ -47,10 +48,14 @@ pathname = pathname.replace(/\/+$/, "").replace(/^\/+/, ""); // Remove trailing 
         </li>
       </ul>
     </div>
-    <a class="btn btn-ghost text-xl" href="/"> Daniel Kinsey </a>
+    <a class="btn btn-ghost text-xl btn-square" href="/">
+      <Monogram class="h-10 w-10 stroke-primary" />
+    </a>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal menu-lg px-1 gap-4">
+  <div class="navbar-center
+        hidden
+        sm:flex">
+    <ul class="menu menu-horizontal menu-lg px-1 gap-2">
       <li>
         <a href="/" class:list={[pathname === "" ? "outline" : ""]}>Home</a>
       </li>
@@ -79,7 +84,7 @@ pathname = pathname.replace(/\/+$/, "").replace(/^\/+/, ""); // Remove trailing 
   <div class="navbar-end">
     <details class="dropdown dropdown-end">
       <summary class="btn btn-ghost"
-        ><AdjustmentsHorizontalIcon class="h-10 w-10" /></summary
+        ><Cog6ToothIcon class="h-10 w-10" /></summary
       >
       <ul
         class="menu menu-vertical dropdown-content bg-base-200 rounded-box shadow"

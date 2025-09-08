@@ -4,8 +4,8 @@ export type DebugOptions = {
   debugMode: boolean;
 };
 
-export const debugOptions = persistentMap<DebugOptions>(
-  "debugOptions:",
+export const debugStore = persistentMap<DebugOptions>(
+  "debugStore:",
   {
     debugMode: false,
   },

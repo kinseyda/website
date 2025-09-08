@@ -18,7 +18,7 @@ const astroInfo = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/monogram.svg" />
+    <link rel="icon" type="image/svg+xml" href="/monogram-white-bg.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Daniel's Website.</title>
   </head>
@@ -30,12 +30,8 @@ const astroInfo = {
           <slot class="grow" />
         </div>
       </div>
-      <DebugInfo
-        client:load
-        astroInfo={astroInfo}
-        class="fixed bottom-0 right-0 m-4 p-2 bg-base-200 bg-opacity-75 rounded-lg text-sm z-50"
-      />
-      <div class="absolute inset-0 -z-100">
+      <DebugInfo client:load astroInfo={astroInfo} />
+      <div class="fixed inset-0 -z-100">
         <Background />
       </div>
     </div>

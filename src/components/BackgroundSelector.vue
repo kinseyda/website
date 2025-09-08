@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import { useVModel } from "@nanostores/vue";
-import { backgroundOptions } from "./BackgroundStore";
+import { backgroundStore } from "./BackgroundStore";
 
 export default {
   components: {},
@@ -36,11 +36,11 @@ export default {
   },
   setup() {
     const isBackgroundEnabled = useVModel(
-      backgroundOptions,
+      backgroundStore,
       "isBackgroundEnabled"
     );
-    const showPoints = useVModel(backgroundOptions, "showPoints");
-    const showGuideWave = useVModel(backgroundOptions, "showGuideWave");
+    const showPoints = useVModel(backgroundStore, "showPoints");
+    const showGuideWave = useVModel(backgroundStore, "showGuideWave");
     return {
       isBackgroundEnabled: isBackgroundEnabled,
       showPoints: showPoints,

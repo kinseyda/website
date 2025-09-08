@@ -7,8 +7,8 @@ export type BackgroundOptions = {
   samples: number;
 };
 
-export const backgroundOptions = persistentMap<BackgroundOptions>(
-  "backgroundOptions:",
+export const backgroundStore = persistentMap<BackgroundOptions>(
+  "backgroundStore:",
   {
     isBackgroundEnabled: true,
     showPoints: false,
