@@ -1,13 +1,15 @@
 ---
 import { Image } from "astro:assets";
+import ArchmarkScreenshot from "../assets/archmark-screenshot.png";
+import DivinimScreenshot from "../assets/divinimity-demo.png";
+import MolesScreenshot from "../assets/moles-screenshot.png";
 import MuzikoScreenshot from "../assets/muziko-screenshot.png";
 import NeuralPlaygroundScreenshot from "../assets/neural-playground-screenshot.png";
+import WikidDemo from "../assets/wikid-demo.gif";
+import GithubButton from "../components/GithubButton.astro";
 import ProjectHero from "../components/ProjectHero.astro";
 import Layout from "../layouts/Layout.astro";
-import MolesScreenshot from "../assets/moles-screenshot.png";
-import ArchmarkScreenshot from "../assets/archmark-screenshot.png";
-import WikidDemo from "../assets/wikid-demo.gif";
-import DivinimScreenshot from "../assets/divinim-screenshot.png";
+import ProjectButton from "../components/ProjectButton.astro";
 ---
 
 <Layout>
@@ -23,7 +25,7 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
       <div class="divider"></div>
       <div class="grid grid-cols-1 gap-4">
         <ProjectHero>
-          <span slot="title">This Website</span>
+          <span slot="title">Home Server / This Website</span>
           <span slot="description">
             <p>
               This website was built to act as a portfolio and a demonstration
@@ -38,55 +40,43 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               family.
             </p>
           </span>
-          <span slot="links">
-            <a
-              class="btn btn-primary"
-              href="https://github.com/kinseyda/website"
-            >
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <GithubButton repoURL="https://github.com/kinseyda/website" />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Divinim / Divinimity</span>
           <Image
-            slot="image"
             src={DivinimScreenshot}
             alt="Divinim project screenshot"
-            class=""
+            slot="image"
           />
           <span slot="description">
             <p>
-              Divinim was my honours project as a Computer Science student at
-              the University of Ottawa: a game of mine and my supervisor's
-              creation, an abstraction of the game "Bad Chocolate", sometimes
-              called Chomp. The game is played on a grid of squares, where one
-              piece is "poisoned". Players take turns breaking the bar along one
-              gridline, giving the other player the part with the poisoned
-              piece, who then has to break the bar again. The game ends when the
-              individual poisoned piece is handed to a player, who loses the
-              game. Our abstraction, Divinim, allows for multiple pieces to be
-              poisoned. This addition leads to a more complex game, and
-              analyzing it was the goal of the project.
+              Divinimity is a web application for playing Divinim, a turn-based
+              strategy game I created. The game started as my honours project at
+              the University of Ottawa, where I researched optimal strategies
+              for the game. The original idea came from my supervisor, Jean-Lou
+              De Carufel, who saw a copy of James Tanton's <i>
+                Solve This: Math Activities for Students and Clubs</i
+              >. In its original form, the game only ever has one marked /
+              poisoned tile, and we abstracted the game to allow for multiple
+              marked tiles, as well as different winning conditions and
+              rulesets.
             </p>
             <p>
-              The main deliverable of the project was a report and presentation
-              written in LaTeX analyzing the game theory: determining if an
-              ideal strategy exists and what it might be. I am also creating a
-              web version of the game, which is not yet complete.
+              The web application is hosted on my home server, and consists of
+              an Astro / Vue front-end, with a Node.js / Express back-end, and a
+              RethinkDB database allowing for real-time multiplayer games.
             </p>
           </span>
-          <span slot="links">
-            <a class="btn btn-primary" href="https://divinimity.kinseyda.com">
-              View Project
-            </a>
-            <a
-              class="btn btn-primary"
-              href="https://github.com/kinseyda/divinimity"
-            >
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <ProjectButton
+              url="https://divinimity.kinseyda.com"
+              label="divinimity.kinseyda.com"
+            />
+            <GithubButton repoURL="https://github.com/kinseyda/divinimity" />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Wikid</span>
@@ -104,11 +94,9 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               markdown, and indexes the articles and metadata using Meilisearch.
             </p>
           </span>
-          <span slot="links">
-            <a class="btn btn-primary" href="https://github.com/kinseyda/wikid">
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <GithubButton repoURL="https://github.com/kinseyda/wikid" />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Muziko</span>
@@ -130,17 +118,13 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               for the comments. The music data is pulled from Spotify's API.
             </p>
           </span>
-          <span slot="links">
-            <a class="btn btn-primary" href="https://kinseyda.github.io/muziko">
-              View Project
-            </a>
-            <a
-              class="btn btn-primary"
-              href="https://github.com/kinseyda/muziko"
-            >
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <ProjectButton
+              url="https://kinseyda.github.io/muziko"
+              label="kinseyda.github.io/muziko"
+            />
+            <GithubButton repoURL="https://github.com/kinseyda/muziko" />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Neural Playground</span>
@@ -168,20 +152,15 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               vis.js.
             </p>
           </span>
-          <span slot="links">
-            <a
-              class="btn btn-primary"
-              href="https://kinseyda.github.io/neural-playground"
-            >
-              View Project
-            </a>
-            <a
-              class="btn btn-primary"
-              href="https://github.com/kinseyda/neural-playground"
-            >
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <ProjectButton
+              url="https://kinseyda.github.io/neural-playground"
+              label="kinseyda.github.io/neural-playground"
+            />
+            <GithubButton
+              repoURL="https://github.com/kinseyda/neural-playground"
+            />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">Moles</span>
@@ -202,14 +181,13 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               were created by me.
             </p>
           </span>
-          <span slot="links">
-            <a class="btn btn-primary" href="https://kinseyda.github.io/moles">
-              View Project
-            </a>
-            <a class="btn btn-primary" href="https://github.com/kinseyda/moles">
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <ProjectButton
+              url="https://kinseyda.github.io/moles"
+              label="kinseyda.github.io/moles"
+            />
+            <GithubButton repoURL="https://github.com/kinseyda/moles" />
+          </Fragment>
         </ProjectHero>
         <ProjectHero>
           <span slot="title">ArchMark</span>
@@ -228,14 +206,9 @@ import DivinimScreenshot from "../assets/divinim-screenshot.png";
               was built using Kotlin and the Android SDK.
             </p>
           </span>
-          <span slot="links">
-            <a
-              class="btn btn-primary"
-              href="https://github.com/kinseyda/archmark"
-            >
-              View GitHub Repository
-            </a>
-          </span>
+          <Fragment slot="links">
+            <GithubButton repoURL="https://github.com/kinseyda/archmark" />
+          </Fragment>
         </ProjectHero>
       </div>
     </div>

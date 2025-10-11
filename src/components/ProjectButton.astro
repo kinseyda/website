@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import { GlobeAltIcon } from "@heroicons/vue/24/outline";
+
+const { url, label } = Astro.props;
+---
+
+<a href={url} class="btn btn-primary">
+  <GlobeAltIcon class="size-[1.2em]" />
+  {label}
+</a>

@@ -2,7 +2,7 @@
 // Display a hero card for a project I've done.
 ---
 
-<div class="hero bg-base-200 min-w-sm rounded-3xl">
+<div class="hero bg-base-200 rounded-3xl">
   <div class="hero-content flex flex-col">
     <h1 class="text-5xl font-bold">
       <slot name="title" />
@@ -13,7 +13,9 @@
       </div>
       <div class="gap-5 flex flex-col items-center">
         <slot name="description" />
-        <slot name="links" />
+        <div class="grid gap-3">
+          <slot name="links" />
+        </div>
       </div>
     </div>
   </div>

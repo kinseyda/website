@@ -179,13 +179,11 @@ export default {
 };
 </script>
 <template>
-  <div data-allow-mismatch="children">
-    <PaperCanvas
-      class="w-full h-full"
-      :redrawFunction="redrawWithOptions(backgroundOptions)"
-      v-if="backgroundOptions.isBackgroundEnabled"
-    />
-  </div>
+  <PaperCanvas
+    class="w-full h-full"
+    :redrawFunction="redrawWithOptions(backgroundOptions)"
+    v-if="backgroundOptions.isBackgroundEnabled"
+  />
 </template>
 <style scoped>
 canvas[resize] {

@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import GithubMark from "../assets/github-mark.svg";
+
+const { repoURL } = Astro.props;
+---
+
+<a href={repoURL} class="btn btn-info">
+  <Image src={GithubMark} class="size-[1.2em]" alt="GitHub Logo" />
+  GitHub Repository
+</a>
